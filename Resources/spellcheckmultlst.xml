@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <lst name="responseHeader">
+    <int name="status">0</int>
+    <int name="QTime">119</int>
+  </lst>
+  <result name="response" start="0" numFound="0"/>
+  <lst name="spellcheck">
+    <lst name="suggestions">
+      <lst name="delll">
+        <int name="numFound">1</int>
+        <int name="startOffset">0</int>
+        <int name="endOffset">5</int>
+        <int name="origFreq">0</int>
+        <arr name="suggestion">
+          <lst>
+            <str name="word">dell</str>
+            <int name="freq">2</int>
+          </lst>
+        </arr>
+      </lst>
+      <lst name="mxtor">
+        <int name="numFound">2</int>
+        <int name="startOffset">6</int>
+        <int name="endOffset">11</int>
+        <int name="origFreq">0</int>
+        <arr name="suggestion">
+          <lst>
+            <str name="word">maxtor</str>
+            <int name="freq">2</int>
+          </lst>
+          <lst>
+            <str name="word">motor</str>
+            <int name="freq">1</int>
+          </lst>
+        </arr>
+      </lst>
+    </lst>
+    <bool name="correctlySpelled">false</bool>
+    <lst name="collations">
+      <lst name="collation">
+        <str name="collationQuery">dell maxtor</str>
+        <int name="hits">4</int>
+        <lst name="misspellingsAndCorrections">
+          <str name="delll">dell</str>
+          <str name="mxtor">maxtor</str>
+        </lst>
+      </lst>
+      <lst name="collation">
+        <str name="collationQuery">dell motor</str>
+        <int name="hits">3</int>
+        <lst name="misspellingsAndCorrections">
+          <str name="delll">dell</str>
+          <str name="mxtor">motor</str>
+        </lst>
+      </lst>
+    </lst>
+  </lst>
+</response>
