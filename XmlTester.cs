@@ -36,18 +36,6 @@ namespace SolrUnitTest
             //Assert.AreEqual("audit", spellChecking.Collation);
             Assert.AreEqual(2, spellChecking.Collations.Count());
             Assert.AreEqual(2, spellChecking.Count);
-
-
-            //var xmlfil = GetEmbeddedXml(GetType(), "Resources.spellcheckmultstr.xml");
-            //var docNode = xmlfil.XPathSelectElement("response/result/doc");
-            //var spellCheckingNode = xmlfil.XPathSelectElement("response/lst[@name='spellcheck']");
-            //var suggestionsNode = spellCheckingNode.XPathSelectElement("lst[@name='suggestions']");
-            //var collationsNode = spellCheckingNode.XPathSelectElement("lst[@name='collations']");
-            //IEnumerable<XElement> collationNodes;
-            //collationNodes = collationsNode.XPathSelectElements("lst[@name='collation']");
-            //if (collationNodes.Count() == 0)
-            //    collationNodes = collationsNode.XPathSelectElements("str[@name='collation']");
-            //Assert.AreEqual(2, collationNodes.Count());
         }
 
         [TestMethod]
@@ -59,18 +47,23 @@ namespace SolrUnitTest
             var spellChecking = parser.ParseSpellChecking(docNode);
             Assert.IsNotNull(spellChecking);
             Assert.AreEqual(2, spellChecking.Collations.Count());
-            //Assert.AreEqual("audit", spellChecking.Collation);
+            Assert.AreEqual("dell maxtor", spellChecking.Collation);
             Assert.AreEqual(2, spellChecking.Count);
+            Assert.AreEqual(1, spellChecking.First().Suggestions.Count);
+        }
 
-
-            //var spellCheckingNode = xmlfil.XPathSelectElement("response/lst[@name='spellcheck']");
-            //var suggestionsNode = spellCheckingNode.XPathSelectElement("lst[@name='suggestions']");
-            //var collationsNode = spellCheckingNode.XPathSelectElement("lst[@name='collations']");
-            //IEnumerable<XElement> collationNodes;
-            //collationNodes = collationsNode.XPathSelectElements("lst[@name='collation']");
-            //if (collationNodes.Count() == 0)
-            //    collationNodes = collationsNode.XPathSelectElements("str[@name='collation']");
-            //Assert.AreEqual(2, collationNodes.Count());
+        [TestMethod]
+        public void BugFixTestAllCompact()
+        {
+            var xml = GetEmbeddedXml(GetType(), "Resources.spellcheckCompact.xml");
+            var docNode = xml.XPathSelectElement("response/lst[@name='spellcheck']");
+            SpellCheckResponseParser parser = new SpellCheckResponseParser();
+            var spellChecking = parser.ParseSpellChecking(docNode);
+            Assert.IsNotNull(spellChecking);
+            Assert.AreEqual(2, spellChecking.Collations.Count());
+            Assert.AreEqual("dell maxtor", spellChecking.Collation);
+            Assert.AreEqual(2, spellChecking.Count);
+            Assert.AreEqual(1, spellChecking.First().Suggestions.Count);
         }
 
         [TestMethod]

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <lst name="responseHeader">
+    <int name="status">0</int>
+    <int name="QTime">30</int>
+  </lst>
+  <result name="response" numFound="0" start="0"></result>
+  <lst name="spellcheck">
+    <lst name="suggestions">
+      <lst name="delll">
+        <int name="numFound">1</int>
+        <int name="startOffset">0</int>
+        <int name="endOffset">5</int>
+        <arr name="suggestion">
+          <str>dell</str>
+        </arr>
+      </lst>
+      <lst name="mxtor">
+        <int name="numFound">2</int>
+        <int name="startOffset">6</int>
+        <int name="endOffset">11</int>
+        <arr name="suggestion">
+          <str>maxtor</str>
+          <str>motor</str>
+        </arr>
+      </lst>
+    </lst>
+    <lst name="collations">
+      <str name="collation">dell maxtor</str>
+      <str name="collation">dell motor</str>
+    </lst>
+  </lst>
+</response>

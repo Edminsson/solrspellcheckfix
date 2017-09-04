@@ -71,7 +71,9 @@ namespace SolrUnitTest
                     result.EndOffset = Convert.ToInt32(c.XPathSelectElement("int[@name='endOffset']").Value);
                     result.StartOffset = Convert.ToInt32(c.XPathSelectElement("int[@name='startOffset']").Value);
                     var suggestions = new List<string>();
-                    var suggestionNodes = c.XPathSelectElements("arr[@name='suggestion']/str");
+                    var suggestionNodes = c.XPathSelectElements("arr[@name='suggestion']/lst/str");
+                    if (suggestionNodes.Count() == 0)
+                        suggestionNodes = c.XPathSelectElements("arr[@name='suggestion']/str");
                     foreach (var suggestionNode in suggestionNodes)
                     {
                         suggestions.Add(suggestionNode.Value);
